@@ -1,5 +1,5 @@
 class Airline < ApplicationRecord
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   before_create :slugify # s called before Base.save on new objects that haven’t been saved yet (no record exists).
 
