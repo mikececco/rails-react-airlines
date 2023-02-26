@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root to: 'pages#index'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  namespace :api do # API routes in our app, organize controllers
+    namespace :v1 do
+      resources :airlines, param: :slug
+      resources :reviews, only: [:create, :destroy]
+    end
+  end
+
+  get '*path', to: 'pages#index', via: :all # all not pre-defined path in API will be redirected to index
 end
