@@ -13,7 +13,7 @@ module Api
       end
 
       def destroy
-        review = Review.find(review)
+        review = Review.find(params[:id])
 
         if review.destroy
           head :no_content #returns Status Code:200 OK
