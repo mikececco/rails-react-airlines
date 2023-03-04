@@ -3,12 +3,13 @@ module Api
     class ReviewsController < ApplicationController
       protect_from_forgery with: :null_session # turns on request forgery protection and checks for the CSRF token in non-GET and non-HEAD requests
       def create
-        review = Review.new(review)
+        review = Review.new(review_params)
 
         if review.save
           render json: ReviewSerializer.new(review).serializable_hash.to_json
         else
-          render json: { error: airline.errors.messages }, status: 422
+          render json: { error: review.errors.messages }, status: 422
+        end
       end
 
       def destroy
@@ -17,7 +18,8 @@ module Api
         if review.destroy
           head :no_content #returns Status Code:200 OK
         else
-          render json: { error: airline.errors.messages }, status: 422
+          render json: { error: review.errors.messages }, status: 422
+        end
       end
 
       private
