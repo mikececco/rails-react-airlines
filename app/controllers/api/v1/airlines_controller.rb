@@ -1,6 +1,7 @@
 module Api
   module V1
     class AirlinesController < ApplicationController
+      protect_from_forgery with: :null_session # turns on request forgery protection and checks for the CSRF token in non-GET and non-HEAD requests
       def index
         airlines = Airline.all
 
@@ -24,7 +25,7 @@ module Api
       end
 
       def update
-        airline = Airline.find_by(slug: param[:slugs])
+        airline = Airline.find_by(slug: params[:slug])
 
         if airline.update(airline_params)
           render json: AirlineSerializer.new(airline, options).serializable_hash.to_json
@@ -34,7 +35,7 @@ module Api
       end
 
       def destroy
-        airline = Airline.find_by(slug: param[:slugs])
+        airline = Airline.find_by(slug: params[:slug])
 
         if airline.destroy
           head :no_content
