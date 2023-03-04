@@ -4,20 +4,20 @@ module Api
       def index
         airlines = Airline.all
 
-        render json: AirlineSerializer.new(airlines, options).serialized_json
+        render json: AirlineSerializer.new(airlines, options).serializable_hash.to_json
       end
 
       def show
         airline = Airline.find_by(slug: param[:slugs])
 
-        render json: AirlineSerializer.new(airline, options).serialized_json
+        render json: AirlineSerializer.new(airline, options).serializable_hash.to_json
       end
 
       def create
         airline = Airline.new(airline_params)
 
         if airline.save
-          render json: AirlineSerializer.new(airline).serialized_json
+          render json: AirlineSerializer.new(airline).serializable_hash.to_json
         else
           render json: { error: airline.errors.messages }, status: 422
         end
@@ -27,7 +27,7 @@ module Api
         airline = Airline.find_by(slug: param[:slugs])
 
         if airline.update(airline_params)
-          render json: AirlineSerializer.new(airline, options).serialized_json
+          render json: AirlineSerializer.new(airline, options).serializable_hash.to_json
         else
           render json: { error: airline.errors.messages }, status: 422
         end
