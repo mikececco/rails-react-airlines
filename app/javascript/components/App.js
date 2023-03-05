@@ -7,8 +7,8 @@ import Airline from '../components/Airline/Airline'
 const App = () => {
   return (
     <Switch>
-      <Route exact path="/" component= {Airlines}/>
-      <Route exact path="/airlines/:slug" component= {Airline}/>
+      <Route path="/" component= {Airlines}/>
+      <Route path="/airlines/:slug" component= {Airline}/>
     </Switch>
   ) // Switch renders the first child <Route> or <Redirect> that matches the location.
 }

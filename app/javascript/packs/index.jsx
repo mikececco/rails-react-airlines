@@ -3,15 +3,15 @@
 // of the page.
 
 import React from 'react'
-import ReactDOM from "react-dom/client";
-import PropTypes from 'prop-types'
+import ReactDOM from 'react-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import App from '../components/App'
 
-ReactDOM.createRoot(
-  document.getElementById("root"),
-)
-.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-);
+document.addEventListener('DOMContentLoaded', () => {
+  ReactDOM.render(
+    <Router>
+      <Route path="/" component={App}/>
+    </Router>,
+    document.body.appendChild(document.createElement('div')),
+  )
+})

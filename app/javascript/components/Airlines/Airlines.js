@@ -2,7 +2,7 @@ import React from "react";
 
 const Airlines = () => {
   return (
-    <div>This is an Airline#index view for our app</div>
+    <div>This is Airlines#index view for our app</div>
   )
 }
 
