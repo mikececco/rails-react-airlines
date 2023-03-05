@@ -1,8 +1,12 @@
 import React from "react";
 
 const Airlines = () => {
+  console.log('Airlines render');
+
   return (
-    <div>This is Airlines#index view for our app</div>
+    <div>
+      <h1>This is Airlines#index view for our app</h1>
+    </div>
   )
 }
 
