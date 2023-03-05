@@ -7,7 +7,7 @@ const App = () => {
   console.log('App render');
   return (
     <Switch>
-      <Route exact path="/" render={() => <Airlines />} />
+      <Route exact path="/" component={Airlines} />
       <Route exact path="/airlines/:slug" component={Airline} />
     </Switch>
   );
