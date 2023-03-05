@@ -20,10 +20,9 @@ const Airlines = () => {
 
   return (
     <Fragment>
-    <div>
-      <h1>This is Airlines#index view for our app</h1>
-      <ul>{list}</ul>
-    </div>
+    <div></div>
+    <div><h1>This is Airlines#index view for our app</h1></div>
+    <ul>{list}</ul>
     </Fragment>
   )
 }
