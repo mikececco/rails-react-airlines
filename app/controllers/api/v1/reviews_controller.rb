@@ -16,7 +16,7 @@ module Api
         review = Review.find(params[:id])
 
         if review.destroy
-          head :no_content #returns Status Code:200 OK
+          head :no_content # returns Status Code:200 OK
         else
           render json: { error: review.errors.messages }, status: 422
         end
